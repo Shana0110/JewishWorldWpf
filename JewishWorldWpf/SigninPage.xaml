@@ -1,0 +1,28 @@
+﻿<Page x:Class="JewishWorldWpf.SignInPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JewishWorldWpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SignInPage">
+
+    <Grid>
+        <StackPanel Margin="0, 120"   HorizontalAlignment="Center">
+            <TextBlock Text="Sign in ..."  FontSize="45" Foreground="Blue" FontFamily="Algerian"/>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="UserName: " HorizontalAlignment="Center"  />
+                <TextBox Name="UserName" Width="90"/>
+            </StackPanel>
+            <TextBlock Text="" Name="tkinout"/>
+            <StackPanel Orientation="Horizontal"  Margin="10">
+                <TextBlock Text="  Code:    " HorizontalAlignment="Center" />
+                <TextBox Name="Code" Width="90" />
+                
+            </StackPanel>
+            <Button  Content="Sing in" Foreground="Blue" Background="Transparent" Margin="25" BorderThickness="0" Click="Button_Click" />
+        </StackPanel>
+        <Frame x:Name="myFrame"    NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>
