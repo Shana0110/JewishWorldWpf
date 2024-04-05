@@ -36,41 +36,22 @@ namespace JewishWorldWpf
             InitializeComponent();
             CTName1.Text = SearcherPage.city123.CityName.ToString();
             currenntCity = cityName;
-            //FindCity();
-
         }
-        //private async Task<City> FindCity()
-        //{
-        //    MyApiService myApiService = new MyApiService();
-        //    CityList cl = await myApiService.SelectAllCity();
-        //    foreach(City city in cl)
-        //    {
-        //        if (city.CityName == currenntCity)
-        //            cityCurrent = city;
-        //    }
-        //    return cityCurrent;
-
-        //}
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.mFrame.Navigate(new KosherRestaurantPage(SearcherPage.city123));
         }
-
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-           
             MainWindow.mFrame.Navigate(new SynagogePage( SearcherPage.city123));
-   
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.mFrame.Navigate(new PopularPlacesPage(SearcherPage.city123));
         }
-
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.mFrame.Navigate(new BeithHabbadPage(SearcherPage.city123));
         }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MyService;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace JewishWorldWpf
 {
@@ -25,6 +26,10 @@ namespace JewishWorldWpf
         public WelcomePage()
         {
             InitializeComponent();
+            var x = new Uri("/Pic/MagenDavidPhoto.jpg", UriKind.Relative);
+            //WelcomePic.Source = new BitmapImage(new Uri("/Pic/MagenDavidPhoto.jpg", UriKind.Relative));
+    
+
         }
 
         private void Log(object sender, RoutedEventArgs e)

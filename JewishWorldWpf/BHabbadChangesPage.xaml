@@ -1,0 +1,84 @@
+﻿<Page x:Class="JewishWorldWpf.HabbadChangesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JewishWorldWpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HabbadChangesPage">
+
+    <Grid>
+
+        <ListView Name="BHlist" Margin="5" ItemsSource="{Binding BeithHabbadList}" >
+            <ListView Name="bHabbadList" SelectionChanged="HabbadList_SelectionChanged" Visibility="Visible">
+                <ListView.View >
+                    <GridView >
+                        <GridViewColumn Header="Email" Width="135" DisplayMemberBinding="{Binding Email }" />
+                        <GridViewColumn Header="Adress " Width="400" DisplayMemberBinding="{Binding Adress}" />
+                        <GridViewColumn Header="Telephone" Width="135" DisplayMemberBinding="{Binding Telephone}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
+        <StackPanel Margin="15,268,137,25">
+            <WrapPanel  Margin="5" >
+                <StackPanel  x:Name="updateEmail">
+                    <TextBlock Text="New email"/>
+                    <TextBox Width="100" Text="" x:Name="em"/>
+
+                </StackPanel>
+                <StackPanel  x:Name="updateAdress">
+                    <TextBlock Text="New adress"/>
+                    <TextBox Width="100" Text="" x:Name="a"/>
+                </StackPanel>
+                <StackPanel  x:Name="updateTelephone">
+                    <TextBlock Text="New telephon"/>
+                    <TextBox Width="100" Text="" x:Name="t"/>
+                </StackPanel>
+                
+                <Button Click="UpdateHabba_Click" Name="UpdateHabbad" Content="Update" Margin="0,5" Width="100" />
+               
+                <StackPanel  x:Name="delete">
+                    <TextBlock Text="Delete Habbad"/>
+                    <TextBox Width="100" Text="" x:Name="dh"/>
+                    <Button Click="DeleteHabbad_Click" Name="DeleteHabbad" Content="Delete" Margin="5,5" Width="100"/>
+                </StackPanel>
+            </WrapPanel>
+
+            <WrapPanel Margin="5">
+                <StackPanel x:Name="add" Orientation="Horizontal" >
+                    <TextBlock  x:Name= "email" Text="New email" Width="70" Height="25"></TextBlock>
+                    <TextBox Width="100" Height="25" x:Name="newEmail" >
+                        <TextBox.Text>
+                            <Binding Path="Email" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+
+                    <TextBlock Text="New adress" Width="70" Height="25" Margin="5,0"/>
+                    <TextBox Width="100" Height="25" x:Name="newAdress" >
+                        <TextBox.Text>
+                            <Binding Path="Adress" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <TextBlock Text="New telephone"  Width="90" Height="25" Margin="5"/>
+                    <TextBox Width="100" Height="25"  x:Name="newtel" >
+                        <TextBox.Text>
+                            <Binding Path="Telephone" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                   
+
+                </StackPanel>
+            </WrapPanel>
+            <Button Click="Add_Click" Name="Add" Content="Add Habbad" HorizontalAlignment="Left" Margin="0,10"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

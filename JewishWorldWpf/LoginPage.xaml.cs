@@ -24,26 +24,38 @@ namespace JewishWorldWpf
     public partial class LoginPage : Page
     {
         private UserList user = new UserList();
+        public static User menahelUser=new User() { Name = "Shana", Code = "0110" };
+        
+        public static bool isManager=false;
         public LoginPage()
         {
             InitializeComponent();
         }
-        public async Task<UserList> User1()
-        {
-            MyApiService myApiService = new MyApiService();
-            UserList u = await myApiService.SelectAllUser();
-            return u;
-        }
+        
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.user =await User1();
-            User myUser= this.user.Find(u => u.Name == UserName.Text && u.Code == Code.Text);
+            //User1();
+            MyApiService myApiService = new MyApiService();
+            UserList user1 = await myApiService.SelectAllUser();
+            User myUser = user1.Find(u => u.Name == UserName.Text && u.Code == Code.Text);
             if (myUser != null)
             {
+
+               
+                if(myUser.Code==menahelUser.Code&& myUser.Name==menahelUser.Name)
+                {
+                    isManager = true;
+                }
+                else
+                {
+                    isManager= false;
+                }
                 MainWindow.mFrame.Content = new SearcherPage();
             }
+            
             else
                     MessageBox.Show("The password or the is incorect,Maybe you need to sign in");  
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -51,5 +63,6 @@ namespace JewishWorldWpf
             this.UserName.Text = "Shana";
             this.Code.Text = "0110";
         }
+       
     }
 }

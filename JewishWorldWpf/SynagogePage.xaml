@@ -10,23 +10,18 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock x:Name="cityName" Text="Synagogues" FontSize="30" ></TextBlock>
+            <TextBlock x:Name="cityName" Foreground="Black" Background="Transparent" FontSize="70" FontFamily="Monotype Corsiva" ></TextBlock>
             <ListView Name="synagogueList">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Adress" Width="400" DisplayMemberBinding="{Binding Adress }" />
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Adress" Width="400" DisplayMemberBinding="{Binding Adress }" />
                         <GridViewColumn Header=" Open Hour" Width="120" DisplayMemberBinding="{Binding OpenHour}" />
                         <GridViewColumn Header="Close Hour" Width="120" DisplayMemberBinding="{Binding CloseHour}" />
                     </GridView>
-                    </ListView.View>
-                </ListView>
-                <!--<GridView>
-                    <GridViewColumn Header="Adress" DisplayMemberBinding="{Binding Adress}" />
-                    <GridViewColumn Header="Open Hour" DisplayMemberBinding="{Binding OpenHour}" />
-                    <GridViewColumn Header="Close Hour" DisplayMemberBinding="{Binding CloseHour}" />
-                </GridView>-->
-            
+                </ListView.View>
+            </ListView>
         </StackPanel>
-        
+        <Image Source="/Pic/SynagoguePhoto.jpg" Width="150" />
+        <Button x:Name="Menahel" Content="Add" Foreground="Silver" Margin="5" Width="150" Height="30" Background="Beige" Click="Menahel_Click" Visibility="Hidden"/>
     </Grid>
 </Page>

@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel Margin="0, 120"   HorizontalAlignment="Center">
-            <TextBlock Text="Log in ..."  FontSize="45" Foreground="Blue" FontFamily="Algerian"/>
+            <TextBlock Text="Log in ..."  FontSize="45" Foreground="Black" FontFamily="Algerian"/>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="UserName: " HorizontalAlignment="Center"  />
                 <TextBox Name="UserName" Width="90"/>
@@ -20,8 +20,8 @@
                 <TextBox Name="Code" Width="90" />
             </StackPanel >
             <StackPanel Orientation="Horizontal">
-                <Button  Content="Log in" Foreground="Blue" Background="Transparent" Margin="25" BorderThickness="0" Click="Button_Click" />
-                <Button Content="fill" Foreground="Blue" Background="Transparent" Margin="25" BorderThickness="0" Click="Button_Click_1"/>
+                <Button  Content="Log in" Foreground="Silver" Background="Transparent" Margin="25" BorderThickness="0" Click="Button_Click" />
+                <Button Content="fill" Foreground="Silver" Background="Transparent" Margin="25" BorderThickness="0" Click="Button_Click_1"/>
             </StackPanel>
             
         </StackPanel>

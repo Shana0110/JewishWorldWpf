@@ -1,0 +1,82 @@
+﻿<Page x:Class="JewishWorldWpf.SynagogueChangesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JewishWorldWpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SynagogueChangesPage">
+
+    <Grid>
+        <ListView Name="SList" Margin="5" ItemsSource="{Binding SynagogueList}" >
+            <ListView Name="synagogueList" SelectionChanged="SynagogueList_SelectionChanged" Visibility="Visible">
+                <ListView.View >
+                    <GridView >
+                        <GridViewColumn Header="Adress" Width="400" DisplayMemberBinding="{Binding Adress }" />
+                        <GridViewColumn Header=" Open Hour" Width="120" DisplayMemberBinding="{Binding OpenHour}" />
+                        <GridViewColumn Header="Close Hour" Width="120" DisplayMemberBinding="{Binding CloseHour}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
+
+        <StackPanel Margin="15,268,137,25">
+            <WrapPanel  Margin="5" >
+              
+                <StackPanel  x:Name="updateAdress">
+                    <TextBlock Text="New adress"/>
+                    <TextBox Width="100" Text="" x:Name="a"/>
+                </StackPanel>
+                <StackPanel  x:Name="updateOpenHour">
+                    <TextBlock Text="New Open Hour"/>
+                    <TextBox Width="100" Text="" x:Name="o"/>
+                </StackPanel>
+                <StackPanel  x:Name="updateCloseHour">
+                    <TextBlock Text="New Close Hour"/>
+                    <TextBox Width="100" Text="" x:Name="c"/>
+                </StackPanel>
+                <StackPanel>
+                    <Button Click="UpdateSynagogue_Click" Name="UpdateSynagogue" Content="Update" Margin="0,5" Width="100" />
+                </StackPanel>
+                <StackPanel  x:Name="delete">
+                    <TextBlock Text="Delete Synagogue"/>
+                    <TextBox Width="100" Text="" x:Name="ds"/>
+                    <Button Click="DeleteSynagogue_Click" Name="DeleteSynagogue" Content="Delete" Margin="5,5" Width="100"/>
+                </StackPanel>
+            </WrapPanel>
+
+            <WrapPanel Margin="5">
+                <StackPanel x:Name="add" Orientation="Horizontal" >
+                   
+
+                    <TextBlock Text="New adress" Width="70" Height="25" Margin="5,0"/>
+                    <TextBox Width="100" Height="25" x:Name="newAdress" >
+                        <TextBox.Text>
+                            <Binding Path="Adress" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <TextBlock Text="New Open Hour"  Width="90" Height="25" Margin="5"/>
+                    <TextBox Width="100" Height="25"  x:Name="newopen" >
+                        <TextBox.Text>
+                            <Binding Path="Open Hour" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <TextBlock Text="New Close Hour" Width="90" Height="25" Margin="5"/>
+                    <TextBox Width="100" Height="25" x:Name="newclose"  >
+                        <TextBox.Text>
+                            <Binding Path="Close Hour" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                </StackPanel>
+            </WrapPanel>
+            <Button Click="Add_Click" Name="Add" Content="Add synagogue" HorizontalAlignment="Left" Margin="0,10"/>
+        </StackPanel>
+    </Grid>
+</Page>

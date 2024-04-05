@@ -29,13 +29,13 @@ namespace JewishWorldWpf
         {
             InitializeComponent();
             Cont();
-            Cit();
+           
         }
         public async void  Cit()
         {
             List<string> stl=new List<string>();
             this.cities2 = await Cities1();
-            string countryName =this.countryCombo.SelectedItem.ToString();
+            string countryName = this.countryCombo.SelectedItem.ToString();
             Country cf= countries2.Find(x=>x.CountryName== countryName);
             int y = cf.Id;
             foreach(City city in this.cities2)
@@ -47,14 +47,12 @@ namespace JewishWorldWpf
             }
             cityCombo.ItemsSource = stl;
 
-
-
         }
         public async Task<CityList> Cities1()
         {
             MyApiService myApiService = new MyApiService();
             CityList cl = await myApiService.SelectAllCity();
-            return cl;
+            return cl;     
         }
         public async void Cont()
         {
@@ -79,6 +77,11 @@ namespace JewishWorldWpf
             MainWindow.mFrame.Content =new CityUserControlPage(cityName, countryName);
 
             
+        }
+
+        private void countryCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Cit();
         }
     }
 }

@@ -33,6 +33,10 @@ namespace JewishWorldWpf
         {
             InitializeComponent();
             Synagogue1(city);
+            if (LoginPage.isManager == true)
+            {
+                this.Menahel.Visibility = Visibility.Visible;
+            }
 
 
         }
@@ -51,10 +55,14 @@ namespace JewishWorldWpf
                 Debug.WriteLine(e.Message);
             }
             
-            this.cityName.Text = ct.CityName;
+            this.cityName.Text ="Synagogues in "+ ct.CityName;
             this.synagogueList.ItemsSource = stl;
             
         }
 
+        private void Menahel_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.mFrame.Content = new SynagogueChangesPage(SearcherPage.city123);
+        }
     }
 }

@@ -9,8 +9,6 @@
       Title="CityUserControlPage">
 
     <Grid x:Name="mainGrid">
-        <!--<local:CityControl1/>-->
-        
 
     </Grid>
 </Page>

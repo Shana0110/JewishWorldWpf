@@ -1,0 +1,33 @@
+﻿<Page x:Class="JewishWorldWpf.KosherRestaurantPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JewishWorldWpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="KosherRestaurantPage">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock x:Name="cityName"  Foreground="Black" Background="Transparent" FontSize="70" FontFamily="Monotype Corsiva"  ></TextBlock>
+            <ListView Name="kosherList">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name }" />
+                        <GridViewColumn Header="Adress " Width="400" DisplayMemberBinding="{Binding Adress}" />
+                        <GridViewColumn Header="Telephone" Width="120" DisplayMemberBinding="{Binding Telephone}" />
+                        <GridViewColumn Header="Food Type" Width="120" DisplayMemberBinding="{Binding TypeOfFood}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="Menahel" Content="Add" Foreground="Silver" Margin="5" Width="150" Height="30" Background="Beige" Click="Menahel_Click" Visibility="Hidden"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Image Source="/Pic/FoodPhoto.jpg" Width="150" Height="150" />
+                <Image Source="/Pic/RestaurantPhoto.jpg" Width="150" Height="150" />
+            </StackPanel>
+        </StackPanel>
+       
+        
+    </Grid>
+</Page>
